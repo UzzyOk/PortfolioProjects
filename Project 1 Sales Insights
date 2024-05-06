@@ -1,0 +1,74 @@
+This hold all the data and queries from my first portfolio project - SALES ANALYSIS for ATLIQ HARDWARE
+
+
+See Portfolio webiste here : >>>>> <<<<<<<
+
+
+Outline
+ATLIQ Hardware is a computer hardware business in need of a strategy to tackle the challenges in a dynamic market. They are experiencing a reduction in sales and require a data analyst to craft actionable insights through comprehensive sales and financial analytics in the Fast Moving Consumer Goods Industry (FMCG).
+SQL ANALYSIS to view the data and answer the following questions:
+
+1. How many total records are there /sales transactions?, Number of customers?
+2. The transactions from a particular customer/market code ? eg mark001
+3. How many transactions have happened in USD or other currency ?
+4. Show transactions in a particular year? (inner join) eg transactions in 2020 or 2019
+5. Total revenue in a particular year ? (USD/RUPEES)
+6. Sum of revenue in a particular location e.g chennai
+7. Distinct list of products sold in particular market e.g. ‘Chennai’
+
+
+POWERBI ANALYSIS
+-Load data from MySQL to PowerBI
+-Data Cleaning
+-Create Data Model
+-Extract Transform and Load
+-Interactive Dashboard : Total Sales Quantity, Total Revenue, Revenue by Markets, Sales Quanity by markets, Top 5 Customers, Top 5 Products, Revenue Trend, Filter by month/date
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>SQL ANALYSIS<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+SELECT * FROM customers;
+
+SELECT count(*) FROM customers;
+
+SELECT * FROM transactions where market_code='Mark001';
+
+SELECT distinct product_code FROM transactions where market_code='Mark001';
+
+SELECT * from transactions where currency="USD"
+
+SELECT transactions.*, date.* FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020;
+
+
+
+SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020 
+and transactions.currency="INR\r" or transactions.currency="USD\r";
+
+
+
+SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date 
+where date.year=2020 and date.month_name="January" and (transactions.currency="INR\r" or transactions.currency="USD\r");
+
+
+
+SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date 
+where date.year=2020 and transactions.market_code="Mark001";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
