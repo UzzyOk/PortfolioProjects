@@ -24,7 +24,8 @@ What month had the largest COGS?
 What product line had the largest revenue?
 What is the city with the largest revenue?
 What product line had the largest VAT?
-Fetch each product line and add a column to those product line showing "Good", "Bad". Good if its greater than average sales
+Which products line are greater/less than the average sales - Fetch each product line and add a column to those product line 
+showing "Good", "Bad". Good if its greater than average sales and bad if less than
 Which branch sold more products than average product sold?
 What is the most common product line by gender?
 What is the average rating of each product line?
@@ -76,4 +77,4 @@ CREATE TABLE IF NOT EXISTS sales(
     rating FLOAT(2, 1)
 );
 
-After which the data will be cleaned and compiled with updated columns of name of day, time of day and month see here :
+After which the data will be cleaned and compiled with updated columns of name of day, time of day and month see here :<<<<<<<<<<<<<<>>>>>>>>>>>>>>>
